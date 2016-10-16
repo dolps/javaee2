@@ -12,8 +12,6 @@ import javax.inject.Inject;
 import javax.validation.Validator;
 
 import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 import static com.woact.dolplads.testUtils.TestUtils.getValidUser;
 import static org.junit.Assert.*;
@@ -31,13 +29,10 @@ public class UserRepositoryTest extends ArquillianTestHelper {
     private UserRepository userRepository;
     @Inject
     private Validator validator;
-    @Inject
-    private Logger log;
 
     @Before
     @After
     public void restoreDB() throws Exception {
-        log.log(Level.INFO, "restoring DB");
         deleterEJB.deleteEntities(User.class);
     }
 

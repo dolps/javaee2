@@ -3,24 +3,15 @@ package com.woact.dolplads.service;
 import com.woact.dolplads.entity.Address;
 import com.woact.dolplads.entity.User;
 import com.woact.dolplads.enums.CountryEnum;
-import com.woact.dolplads.injector.DolpLogger;
 import com.woact.dolplads.testUtils.ArquillianTestHelper;
 import com.woact.dolplads.testUtils.DeleterEJB;
 import org.junit.After;
 import org.junit.Before;
-import org.junit.Ignore;
 import org.junit.Test;
 
-import javax.annotation.Resource;
 import javax.ejb.EJB;
-import javax.ejb.EJBException;
 import javax.inject.Inject;
-import javax.validation.ConstraintViolation;
-import javax.validation.ConstraintViolationException;
 import javax.validation.Validator;
-
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 import static org.junit.Assert.*;
 
@@ -28,8 +19,6 @@ import static org.junit.Assert.*;
  * Created by dolplads on 12/10/2016.
  */
 public class UserServiceTest extends ArquillianTestHelper {
-    @Inject
-    private Logger logger;
     @EJB
     private UserService userService;
     @EJB
@@ -41,7 +30,6 @@ public class UserServiceTest extends ArquillianTestHelper {
     @Before
     public void setUp() throws Exception {
         deleterEJB.deleteEntities(User.class);
-        logger.log(Level.INFO, "preparing userservice test");
     }
 
     @Test
@@ -83,7 +71,7 @@ public class UserServiceTest extends ArquillianTestHelper {
 
 
     private User getValidUser() {
-        User u = new User("thomas", "dolplads", "userName", new Address("street", "1342", CountryEnum.Norway));
+        User u = new User("userName", "thomas", "dolplads", new Address("street", "1342", CountryEnum.Norway));
         u.setPasswordHash("hash");
         u.setSalt("salt");
         assertEquals(0, validator.validate(u).size());

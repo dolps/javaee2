@@ -17,6 +17,9 @@ public abstract class CrudRepository<E, T> implements CRUD<E, T> {
     EntityManager entityManager;
     private Class<T> entityClass;
 
+    protected CrudRepository() {
+    }
+
     CrudRepository(Class<T> entityClass) {
         this.entityClass = entityClass;
     }

@@ -1,10 +1,12 @@
 package com.woact.dolplads;
 
+import com.woact.dolplads.annotations.DolpLogger;
 import com.woact.dolplads.entity.User;
 import com.woact.dolplads.service.UserService;
 
 import javax.ejb.EJB;
 import javax.enterprise.context.SessionScoped;
+import javax.enterprise.inject.Default;
 import javax.enterprise.inject.Model;
 import javax.inject.Inject;
 import javax.inject.Named;
@@ -23,6 +25,10 @@ public class LoginController implements Serializable {
     private UserService userService;
     @Inject
     private CredentialsController credentials;
+
+    // TODO: 15/10/2016 check this
+    @Default
+    private transient Logger logger;
 
 
     public String logIn() {

@@ -1,6 +1,5 @@
 package com.woact.dolplads.entity;
 
-import com.woact.dolplads.annotations.EqualTo;
 import com.woact.dolplads.annotations.NotEmpty;
 import lombok.Getter;
 import lombok.Setter;
@@ -10,6 +9,7 @@ import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
+import java.util.List;
 
 /**
  * Created by dolplads on 12/10/2016.
@@ -26,6 +26,7 @@ import javax.validation.constraints.Size;
 public class User {
     public static final String FIND_BY_USERNAME = "user_find_by_username";
     public static final String FIND_BY_CREDENTIALS = "user_find_by_credentials";
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -54,14 +55,18 @@ public class User {
 
     @NotEmpty
     private String salt;
+
     @Transient
     private boolean loggedIn;
+
+    @OneToMany(mappedBy = "user")
+    private List<Post> posts;
 
     public User() {
         address = new Address();
     }
 
-    public User(String name, String surName, String userName, Address address) {
+    public User(String userName, String name, String surName, Address address) {
         this.name = name;
         this.surName = surName;
         this.userName = userName;

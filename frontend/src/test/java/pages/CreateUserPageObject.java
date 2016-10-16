@@ -41,7 +41,7 @@ public class CreateUserPageObject extends PageObject {
 
 
         // TODO: 12/10/2016 fix this just for compiling now
-        User u = new User(firstName, lastName, userName, new Address("street", "post", country));
+        User u = new User(userName, firstName, lastName, new Address("street", "post", country));
         u.setPasswordHash(confirmPassword);
 
         return u;

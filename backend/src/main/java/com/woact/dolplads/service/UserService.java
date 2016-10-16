@@ -1,18 +1,14 @@
 package com.woact.dolplads.service;
 
 import com.woact.dolplads.entity.User;
-import com.woact.dolplads.injector.DolpLogger;
-import com.woact.dolplads.repository.CRUD;
+import com.woact.dolplads.annotations.DolpLogger;
 import com.woact.dolplads.repository.UserRepository;
 
 import javax.ejb.EJB;
 import javax.ejb.Stateless;
+import javax.enterprise.inject.Default;
 import javax.inject.Inject;
-import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
-import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
-import java.util.List;
 import java.util.logging.Logger;
 
 /**
@@ -22,8 +18,6 @@ import java.util.logging.Logger;
 public class UserService {
     @EJB
     protected UserRepository userRepository;
-    @Inject
-    private Logger logger;
 
     public User save(User user) {
         User persisted = userRepository.findByUserName(user.getUserName());

@@ -52,7 +52,7 @@ public class TestUtils {
     }
 
     public static User getValidUser() {
-        User u = new User("thomas", "dolplads", "userName", new Address("street", "1342", CountryEnum.Norway));
+        User u = new User("userName", "thomas", "dolplads", new Address("street", "1342", CountryEnum.Norway));
         u.setPasswordHash("hashedpassword");
         u.setSalt("aSalts");
 
