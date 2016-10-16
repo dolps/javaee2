@@ -1,7 +1,10 @@
 package com.woact.dolplads.repository;
 
 import com.woact.dolplads.annotations.Repository;
+import com.woact.dolplads.entity.Comment;
+import com.woact.dolplads.entity.Post;
 import com.woact.dolplads.entity.User;
+import com.woact.dolplads.enums.CountryEnum;
 
 import javax.ejb.Stateless;
 import javax.enterprise.inject.Default;
@@ -40,5 +43,28 @@ public class UserRepository extends CrudRepository<Long, User> {
             return null;
         }
         return users.get(0);
+    }
+
+    public List<CountryEnum> findDistinctCountries() {
+        return entityManager.createNamedQuery(User.FIND_DISTINCT_COUNTRIES)
+                .getResultList();
+    }
+
+    public List<User> findMostActive(int max) {
+        return entityManager.createNamedQuery(User.MOST_ACTIVE)
+                .setMaxResults(max)
+                .getResultList();
+    }
+
+    public List<Post> findPostsByUser(Long userId) {
+        return entityManager.createQuery("select user.posts from User user where user.id = :userId")
+                .setParameter("userId", userId)
+                .getResultList();
+    }
+
+    public List<Comment> findCommentsByUser(Long userId) {
+        return entityManager.createQuery("select user.comments from User user where user.id = :userId")
+                .setParameter("userId", userId)
+                .getResultList();
     }
 }

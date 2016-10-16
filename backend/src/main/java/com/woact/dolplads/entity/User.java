@@ -18,7 +18,11 @@ import java.util.List;
 @NamedQueries({
         @NamedQuery(name = User.FIND_BY_USERNAME, query = "select user from User user where userName=:userName"),
         @NamedQuery(name = User.FIND_BY_CREDENTIALS,
-                query = "select u from User u where u.userName = :userName and u.passwordHash = :password")
+                query = "select u from User u where u.userName = :userName and u.passwordHash = :password"),
+        @NamedQuery(name = User.FIND_DISTINCT_COUNTRIES,
+                query = "select distinct(user.address.countryEnum)from User user"),
+        @NamedQuery(name = User.MOST_ACTIVE,
+                query = "select user from User user order by size(user.posts) + size(user.comments) DESC")
 })
 @Getter
 @Setter
@@ -26,6 +30,8 @@ import java.util.List;
 public class User {
     public static final String FIND_BY_USERNAME = "user_find_by_username";
     public static final String FIND_BY_CREDENTIALS = "user_find_by_credentials";
+    public static final String FIND_DISTINCT_COUNTRIES = "user_find_distinct_countries";
+    public static final String MOST_ACTIVE = "user_most_active";
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -61,6 +67,9 @@ public class User {
 
     @OneToMany(mappedBy = "user")
     private List<Post> posts;
+
+    @OneToMany(mappedBy = "user")
+    private List<Comment> comments;
 
     public User() {
         address = new Address();

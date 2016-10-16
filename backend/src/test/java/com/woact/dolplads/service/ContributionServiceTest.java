@@ -67,6 +67,7 @@ public class ContributionServiceTest extends ArquillianTestHelper {
         assertEquals(user.getId(), commentRepository.findById(comment.getId()).getUser().getId());
         assertEquals(user.getId(), commentRepository.findById(comment2.getId()).getUser().getId());
         assertEquals(2, commentRepository.findCommentsByPost(post.getId()).size());
+        assertEquals(2, commentRepository.findCommentsByUser(user.getId()).size());
     }
 
     @Test

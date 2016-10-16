@@ -13,4 +13,9 @@ public class PostRepository extends ContributionRepository<Long, Post> {
     protected PostRepository() {
         super(Post.class);
     }
+
+    public int findNumberOfPosts() {
+        Long result = (Long) entityManager.createNamedQuery(Post.NUMBER_OF_POSTS).getSingleResult();
+        return result.intValue();
+    }
 }
