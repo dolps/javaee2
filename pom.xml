@@ -4,21 +4,22 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.woact.dolplads</groupId>
-    <artifactId>javaEEBoilerplate</artifactId>
+    <groupId>com.woact.lastName</groupId>
+    <artifactId>javaee2</artifactId>
     <packaging>pom</packaging>
     <version>1.0-SNAPSHOT</version>
     <modules>
         <module>backend</module>
         <module>frontend</module>
         <module>report</module>
+        <module>quiz</module>
     </modules>
 
     <name>ExampleExam</name>
     <developers>
         <developer>
             <name>Thomas Dolplads</name>
-            <email>dolplads@gmail.com</email>
+            <email>lastName@gmail.com</email>
         </developer>
     </developers>
 
@@ -165,7 +166,7 @@
     </dependencyManagement>
 
     <build>
-        <finalName>exam_example</finalName>
+        <finalName>quiz</finalName>
 
         <pluginManagement>
             <plugins>
