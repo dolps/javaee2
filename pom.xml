@@ -13,6 +13,7 @@
         <module>frontend</module>
         <module>report</module>
         <module>quiz</module>
+        <module>restApi</module>
     </modules>
 
     <name>ExampleExam</name>

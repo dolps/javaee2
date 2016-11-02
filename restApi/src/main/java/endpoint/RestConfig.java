@@ -1,4 +1,4 @@
-package com.woact.dolplads.quiz;
+package endpoint;
 
 import javax.ws.rs.ApplicationPath;
 import javax.ws.rs.core.Application;

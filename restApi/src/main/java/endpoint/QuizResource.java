@@ -1,4 +1,4 @@
-package com.woact.dolplads.quiz.endpoint;
+package endpoint;
 
 import com.woact.dolplads.quiz.model.User;
 import lombok.extern.java.Log;
