@@ -10,10 +10,8 @@
     <version>1.0-SNAPSHOT</version>
     <modules>
         <module>backend</module>
-        <module>frontend</module>
         <module>report</module>
         <module>quiz</module>
-        <module>restApi</module>
     </modules>
 
     <name>ExampleExam</name>
@@ -38,11 +36,6 @@
         <fs>${file.separator}</fs>
     </properties>
 
-
-    <!--
-    Here we define all third-party dependencies we need in the sub-modules, so that we
-    do not have to copy&paste each time the <version> and <scope> tags
-    -->
     <dependencyManagement>
         <dependencies>
             <dependency>
@@ -60,7 +53,6 @@
                 <groupId>org.jboss.spec</groupId>
                 <artifactId>jboss-javaee-7.0</artifactId>
                 <version>1.0.3.Final</version>
-                <!-- Import all libraries definitions in this dependency pom file  -->
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
@@ -161,6 +153,11 @@
                 <groupId>org.jboss.resteasy</groupId>
                 <artifactId>resteasy-client</artifactId>
                 <version>3.0.16.Final</version>
+            </dependency>
+            <dependency>
+                <groupId>com.google.code.gson</groupId>
+                <artifactId>gson</artifactId>
+                <version>2.7</version>
             </dependency>
 
         </dependencies>

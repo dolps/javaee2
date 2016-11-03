@@ -1,0 +1,417 @@
+2016-11-03 09:06:08,610 INFO  [org.wildfly.extension.undertow] (ServerService Thread Pool -- 80) WFLYUT0022: Unregistered web context: /quiz
+2016-11-03 09:06:08,628 INFO  [org.jboss.as.jpa] (ServerService Thread Pool -- 83) WFLYJPA0011: Stopping Persistence Unit (phase 2 of 2) Service 'quiz#DB'
+2016-11-03 09:06:08,629 INFO  [org.hibernate.tool.hbm2ddl.SchemaExport] (ServerService Thread Pool -- 83) HHH000227: Running hbm2ddl schema export
+2016-11-03 09:06:08,633 INFO  [stdout] (ServerService Thread Pool -- 83) Hibernate: drop table Answer if exists
+2016-11-03 09:06:08,634 INFO  [stdout] (ServerService Thread Pool -- 83) Hibernate: drop table Category if exists
+2016-11-03 09:06:08,636 INFO  [stdout] (ServerService Thread Pool -- 83) Hibernate: drop table Question if exists
+2016-11-03 09:06:08,637 INFO  [stdout] (ServerService Thread Pool -- 83) Hibernate: drop table Question_Answer if exists
+2016-11-03 09:06:08,644 INFO  [stdout] (ServerService Thread Pool -- 83) Hibernate: drop table Quiz if exists
+2016-11-03 09:06:08,645 INFO  [stdout] (ServerService Thread Pool -- 83) Hibernate: drop sequence if exists hibernate_sequence
+2016-11-03 09:06:08,646 INFO  [org.hibernate.tool.hbm2ddl.SchemaExport] (ServerService Thread Pool -- 83) HHH000230: Schema export complete
+2016-11-03 09:06:08,648 INFO  [org.jboss.as.jpa] (ServerService Thread Pool -- 83) WFLYJPA0011: Stopping Persistence Unit (phase 1 of 2) Service 'quiz#DB'
+2016-11-03 09:06:08,658 INFO  [org.jboss.as.server.deployment] (MSC service thread 1-2) WFLYSRV0028: Stopped deployment quiz (runtime-name: quiz.war) in 48ms
+2016-11-03 09:06:08,671 WARN  [org.jboss.as.controller] (management-handler-thread - 15) WFLYCTL0357: Notification of type deployment-undeployed is not described for the resource at the address []
+2016-11-03 09:06:08,672 INFO  [org.jboss.as.server] (management-handler-thread - 15) WFLYSRV0009: Undeployed "quiz" (runtime-name: "quiz.war")
+2016-11-03 09:06:08,738 INFO  [org.jboss.as.server.deployment] (MSC service thread 1-6) WFLYSRV0027: Starting deployment of "quiz" (runtime-name: "quiz.war")
+2016-11-03 09:06:08,909 INFO  [org.jboss.as.jpa] (MSC service thread 1-3) WFLYJPA0002: Read persistence.xml for DB
+2016-11-03 09:06:08,953 INFO  [org.jboss.as.jpa] (ServerService Thread Pool -- 82) WFLYJPA0010: Starting Persistence Unit (phase 1 of 2) Service 'quiz#DB'
+2016-11-03 09:06:08,953 INFO  [org.hibernate.jpa.internal.util.LogHelper] (ServerService Thread Pool -- 82) HHH000204: Processing PersistenceUnitInfo [
+	name: DB
+	...]
+2016-11-03 09:06:08,955 INFO  [org.jboss.weld.deployer] (MSC service thread 1-8) WFLYWELD0003: Processing weld deployment quiz.war
+2016-11-03 09:06:09,015 INFO  [org.jboss.as.jpa] (ServerService Thread Pool -- 82) WFLYJPA0010: Starting Persistence Unit (phase 2 of 2) Service 'quiz#DB'
+2016-11-03 09:06:09,017 INFO  [org.hibernate.dialect.Dialect] (ServerService Thread Pool -- 82) HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+2016-11-03 09:06:09,018 WARN  [org.hibernate.dialect.H2Dialect] (ServerService Thread Pool -- 82) HHH000431: Unable to determine H2 database version, certain features may not work
+2016-11-03 09:06:09,027 INFO  [org.hibernate.envers.boot.internal.EnversServiceImpl] (ServerService Thread Pool -- 82) Envers integration enabled? : true
+2016-11-03 09:06:09,098 INFO  [org.hibernate.tool.hbm2ddl.SchemaExport] (ServerService Thread Pool -- 82) HHH000227: Running hbm2ddl schema export
+2016-11-03 09:06:09,100 INFO  [stdout] (ServerService Thread Pool -- 82) Hibernate: drop table Answer if exists
+2016-11-03 09:06:09,100 INFO  [stdout] (ServerService Thread Pool -- 82) Hibernate: drop table Category if exists
+2016-11-03 09:06:09,100 INFO  [stdout] (ServerService Thread Pool -- 82) Hibernate: drop table Question if exists
+2016-11-03 09:06:09,101 INFO  [stdout] (ServerService Thread Pool -- 82) Hibernate: drop table Question_Answer if exists
+2016-11-03 09:06:09,101 INFO  [stdout] (ServerService Thread Pool -- 82) Hibernate: drop table Quiz if exists
+2016-11-03 09:06:09,101 INFO  [stdout] (ServerService Thread Pool -- 82) Hibernate: drop sequence if exists hibernate_sequence
+2016-11-03 09:06:09,101 INFO  [stdout] (ServerService Thread Pool -- 82) Hibernate: create sequence hibernate_sequence start with 1 increment by 1
+2016-11-03 09:06:09,102 INFO  [stdout] (ServerService Thread Pool -- 82) Hibernate: create table Answer (id bigint not null, answer varchar(255), isCorrect boolean not null, primary key (id))
+2016-11-03 09:06:09,103 INFO  [stdout] (ServerService Thread Pool -- 82) Hibernate: create table Category (id bigint not null, categoryEnum varchar(255), level integer not null, subCategory_id bigint, primary key (id))
+2016-11-03 09:06:09,103 INFO  [stdout] (ServerService Thread Pool -- 82) Hibernate: create table Question (id bigint not null, question varchar(255), category_id bigint, primary key (id))
+2016-11-03 09:06:09,104 INFO  [stdout] (ServerService Thread Pool -- 82) Hibernate: create table Question_Answer (Question_id bigint not null, answers_id bigint not null)
+2016-11-03 09:06:09,104 INFO  [stdout] (ServerService Thread Pool -- 82) Hibernate: create table Quiz (id bigint not null, category_id bigint, question_id bigint, primary key (id))
+2016-11-03 09:06:09,105 INFO  [stdout] (ServerService Thread Pool -- 82) Hibernate: alter table Question_Answer add constraint UK_mtd6dwvb7winafyb55ulyfy4n unique (answers_id)
+2016-11-03 09:06:09,105 INFO  [stdout] (ServerService Thread Pool -- 82) Hibernate: alter table Category add constraint FK68vip5ot0r5v1v6f4ycut71pl foreign key (subCategory_id) references Category
+2016-11-03 09:06:09,107 INFO  [stdout] (ServerService Thread Pool -- 82) Hibernate: alter table Question add constraint FKcfk2lqxngafrq0vyrjemeiu4r foreign key (category_id) references Category
+2016-11-03 09:06:09,108 INFO  [stdout] (ServerService Thread Pool -- 82) Hibernate: alter table Question_Answer add constraint FKsijqdwe52lj914qx22w8bb5nj foreign key (answers_id) references Answer
+2016-11-03 09:06:09,110 INFO  [stdout] (ServerService Thread Pool -- 82) Hibernate: alter table Question_Answer add constraint FKdovdxegcb1fececsvgg6gd4sk foreign key (Question_id) references Question
+2016-11-03 09:06:09,111 INFO  [stdout] (ServerService Thread Pool -- 82) Hibernate: alter table Quiz add constraint FKf79qq9dyysws9ldqi7cok673y foreign key (category_id) references Category
+2016-11-03 09:06:09,113 INFO  [stdout] (ServerService Thread Pool -- 82) Hibernate: alter table Quiz add constraint FKenk5v74e3l1luxd65adsssu29 foreign key (question_id) references Question
+2016-11-03 09:06:09,114 INFO  [org.hibernate.tool.hbm2ddl.SchemaExport] (ServerService Thread Pool -- 82) HHH000230: Schema export complete
+2016-11-03 09:06:09,382 INFO  [org.jboss.resteasy.resteasy_jaxrs.i18n] (ServerService Thread Pool -- 82) RESTEASY002225: Deploying javax.ws.rs.core.Application: class com.woact.dolplads.quiz.RestConfig$Proxy$_$$_WeldClientProxy
+2016-11-03 09:06:09,409 INFO  [org.wildfly.extension.undertow] (ServerService Thread Pool -- 82) WFLYUT0021: Registered web context: /quiz
+2016-11-03 09:06:09,418 INFO  [org.jboss.as.server] (management-handler-thread - 15) WFLYSRV0010: Deployed "quiz" (runtime-name : "quiz.war")
+2016-11-03 09:09:35,911 INFO  [org.wildfly.extension.undertow] (ServerService Thread Pool -- 84) WFLYUT0022: Unregistered web context: /quiz
+2016-11-03 09:09:35,934 INFO  [org.jboss.as.jpa] (ServerService Thread Pool -- 87) WFLYJPA0011: Stopping Persistence Unit (phase 2 of 2) Service 'quiz#DB'
+2016-11-03 09:09:35,934 INFO  [org.hibernate.tool.hbm2ddl.SchemaExport] (ServerService Thread Pool -- 87) HHH000227: Running hbm2ddl schema export
+2016-11-03 09:09:35,936 INFO  [stdout] (ServerService Thread Pool -- 87) Hibernate: drop table Answer if exists
+2016-11-03 09:09:35,937 INFO  [stdout] (ServerService Thread Pool -- 87) Hibernate: drop table Category if exists
+2016-11-03 09:09:35,938 INFO  [stdout] (ServerService Thread Pool -- 87) Hibernate: drop table Question if exists
+2016-11-03 09:09:35,939 INFO  [stdout] (ServerService Thread Pool -- 87) Hibernate: drop table Question_Answer if exists
+2016-11-03 09:09:35,939 INFO  [stdout] (ServerService Thread Pool -- 87) Hibernate: drop table Quiz if exists
+2016-11-03 09:09:35,940 INFO  [stdout] (ServerService Thread Pool -- 87) Hibernate: drop sequence if exists hibernate_sequence
+2016-11-03 09:09:35,941 INFO  [org.hibernate.tool.hbm2ddl.SchemaExport] (ServerService Thread Pool -- 87) HHH000230: Schema export complete
+2016-11-03 09:09:35,943 INFO  [org.jboss.as.jpa] (ServerService Thread Pool -- 87) WFLYJPA0011: Stopping Persistence Unit (phase 1 of 2) Service 'quiz#DB'
+2016-11-03 09:09:35,952 INFO  [org.jboss.as.server.deployment] (MSC service thread 1-8) WFLYSRV0028: Stopped deployment quiz (runtime-name: quiz.war) in 42ms
+2016-11-03 09:09:35,966 WARN  [org.jboss.as.controller] (management-handler-thread - 19) WFLYCTL0357: Notification of type deployment-undeployed is not described for the resource at the address []
+2016-11-03 09:09:35,967 INFO  [org.jboss.as.server] (management-handler-thread - 19) WFLYSRV0009: Undeployed "quiz" (runtime-name: "quiz.war")
+2016-11-03 09:09:36,030 INFO  [org.jboss.as.server.deployment] (MSC service thread 1-7) WFLYSRV0027: Starting deployment of "quiz" (runtime-name: "quiz.war")
+2016-11-03 09:09:36,167 INFO  [org.jboss.as.jpa] (MSC service thread 1-6) WFLYJPA0002: Read persistence.xml for DB
+2016-11-03 09:09:36,199 INFO  [org.jboss.as.jpa] (ServerService Thread Pool -- 84) WFLYJPA0010: Starting Persistence Unit (phase 1 of 2) Service 'quiz#DB'
+2016-11-03 09:09:36,199 INFO  [org.hibernate.jpa.internal.util.LogHelper] (ServerService Thread Pool -- 84) HHH000204: Processing PersistenceUnitInfo [
+	name: DB
+	...]
+2016-11-03 09:09:36,201 INFO  [org.jboss.weld.deployer] (MSC service thread 1-5) WFLYWELD0003: Processing weld deployment quiz.war
+2016-11-03 09:09:36,251 INFO  [org.jboss.as.jpa] (ServerService Thread Pool -- 84) WFLYJPA0010: Starting Persistence Unit (phase 2 of 2) Service 'quiz#DB'
+2016-11-03 09:09:36,252 INFO  [org.hibernate.dialect.Dialect] (ServerService Thread Pool -- 84) HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+2016-11-03 09:09:36,253 WARN  [org.hibernate.dialect.H2Dialect] (ServerService Thread Pool -- 84) HHH000431: Unable to determine H2 database version, certain features may not work
+2016-11-03 09:09:36,259 INFO  [org.hibernate.envers.boot.internal.EnversServiceImpl] (ServerService Thread Pool -- 84) Envers integration enabled? : true
+2016-11-03 09:09:36,348 INFO  [org.hibernate.tool.hbm2ddl.SchemaExport] (ServerService Thread Pool -- 84) HHH000227: Running hbm2ddl schema export
+2016-11-03 09:09:36,349 INFO  [stdout] (ServerService Thread Pool -- 84) Hibernate: drop table Answer if exists
+2016-11-03 09:09:36,350 INFO  [stdout] (ServerService Thread Pool -- 84) Hibernate: drop table Category if exists
+2016-11-03 09:09:36,350 INFO  [stdout] (ServerService Thread Pool -- 84) Hibernate: drop table Question if exists
+2016-11-03 09:09:36,350 INFO  [stdout] (ServerService Thread Pool -- 84) Hibernate: drop table Question_Answer if exists
+2016-11-03 09:09:36,351 INFO  [stdout] (ServerService Thread Pool -- 84) Hibernate: drop table Quiz if exists
+2016-11-03 09:09:36,351 INFO  [stdout] (ServerService Thread Pool -- 84) Hibernate: drop sequence if exists hibernate_sequence
+2016-11-03 09:09:36,351 INFO  [stdout] (ServerService Thread Pool -- 84) Hibernate: create sequence hibernate_sequence start with 1 increment by 1
+2016-11-03 09:09:36,352 INFO  [stdout] (ServerService Thread Pool -- 84) Hibernate: create table Answer (id bigint not null, answer varchar(255), isCorrect boolean not null, primary key (id))
+2016-11-03 09:09:36,352 INFO  [stdout] (ServerService Thread Pool -- 84) Hibernate: create table Category (id bigint not null, categoryEnum varchar(255), level integer not null, subCategory_id bigint, primary key (id))
+2016-11-03 09:09:36,353 INFO  [stdout] (ServerService Thread Pool -- 84) Hibernate: create table Question (id bigint not null, question varchar(255), category_id bigint, primary key (id))
+2016-11-03 09:09:36,353 INFO  [stdout] (ServerService Thread Pool -- 84) Hibernate: create table Question_Answer (Question_id bigint not null, answers_id bigint not null)
+2016-11-03 09:09:36,354 INFO  [stdout] (ServerService Thread Pool -- 84) Hibernate: create table Quiz (id bigint not null, category_id bigint, question_id bigint, primary key (id))
+2016-11-03 09:09:36,354 INFO  [stdout] (ServerService Thread Pool -- 84) Hibernate: alter table Question_Answer add constraint UK_mtd6dwvb7winafyb55ulyfy4n unique (answers_id)
+2016-11-03 09:09:36,354 INFO  [stdout] (ServerService Thread Pool -- 84) Hibernate: alter table Category add constraint FK68vip5ot0r5v1v6f4ycut71pl foreign key (subCategory_id) references Category
+2016-11-03 09:09:36,356 INFO  [stdout] (ServerService Thread Pool -- 84) Hibernate: alter table Question add constraint FKcfk2lqxngafrq0vyrjemeiu4r foreign key (category_id) references Category
+2016-11-03 09:09:36,357 INFO  [stdout] (ServerService Thread Pool -- 84) Hibernate: alter table Question_Answer add constraint FKsijqdwe52lj914qx22w8bb5nj foreign key (answers_id) references Answer
+2016-11-03 09:09:36,358 INFO  [stdout] (ServerService Thread Pool -- 84) Hibernate: alter table Question_Answer add constraint FKdovdxegcb1fececsvgg6gd4sk foreign key (Question_id) references Question
+2016-11-03 09:09:36,360 INFO  [stdout] (ServerService Thread Pool -- 84) Hibernate: alter table Quiz add constraint FKf79qq9dyysws9ldqi7cok673y foreign key (category_id) references Category
+2016-11-03 09:09:36,361 INFO  [stdout] (ServerService Thread Pool -- 84) Hibernate: alter table Quiz add constraint FKenk5v74e3l1luxd65adsssu29 foreign key (question_id) references Question
+2016-11-03 09:09:36,363 INFO  [org.hibernate.tool.hbm2ddl.SchemaExport] (ServerService Thread Pool -- 84) HHH000230: Schema export complete
+2016-11-03 09:09:36,584 INFO  [org.jboss.resteasy.resteasy_jaxrs.i18n] (ServerService Thread Pool -- 87) RESTEASY002225: Deploying javax.ws.rs.core.Application: class com.woact.dolplads.quiz.RestConfig$Proxy$_$$_WeldClientProxy
+2016-11-03 09:09:36,592 INFO  [org.wildfly.extension.undertow] (ServerService Thread Pool -- 87) WFLYUT0021: Registered web context: /quiz
+2016-11-03 09:09:36,602 INFO  [org.jboss.as.server] (management-handler-thread - 19) WFLYSRV0010: Deployed "quiz" (runtime-name : "quiz.war")
+2016-11-03 09:10:35,505 INFO  [org.wildfly.extension.undertow] (ServerService Thread Pool -- 88) WFLYUT0022: Unregistered web context: /quiz
+2016-11-03 09:10:35,518 INFO  [org.jboss.as.jpa] (ServerService Thread Pool -- 91) WFLYJPA0011: Stopping Persistence Unit (phase 2 of 2) Service 'quiz#DB'
+2016-11-03 09:10:35,519 INFO  [org.hibernate.tool.hbm2ddl.SchemaExport] (ServerService Thread Pool -- 91) HHH000227: Running hbm2ddl schema export
+2016-11-03 09:10:35,520 INFO  [stdout] (ServerService Thread Pool -- 91) Hibernate: drop table Answer if exists
+2016-11-03 09:10:35,521 INFO  [stdout] (ServerService Thread Pool -- 91) Hibernate: drop table Category if exists
+2016-11-03 09:10:35,523 INFO  [stdout] (ServerService Thread Pool -- 91) Hibernate: drop table Question if exists
+2016-11-03 09:10:35,525 INFO  [stdout] (ServerService Thread Pool -- 91) Hibernate: drop table Question_Answer if exists
+2016-11-03 09:10:35,525 INFO  [stdout] (ServerService Thread Pool -- 91) Hibernate: drop table Quiz if exists
+2016-11-03 09:10:35,526 INFO  [stdout] (ServerService Thread Pool -- 91) Hibernate: drop sequence if exists hibernate_sequence
+2016-11-03 09:10:35,529 INFO  [org.hibernate.tool.hbm2ddl.SchemaExport] (ServerService Thread Pool -- 91) HHH000230: Schema export complete
+2016-11-03 09:10:35,536 INFO  [org.jboss.as.jpa] (ServerService Thread Pool -- 91) WFLYJPA0011: Stopping Persistence Unit (phase 1 of 2) Service 'quiz#DB'
+2016-11-03 09:10:35,545 INFO  [org.jboss.as.server.deployment] (MSC service thread 1-1) WFLYSRV0028: Stopped deployment quiz (runtime-name: quiz.war) in 41ms
+2016-11-03 09:10:35,566 WARN  [org.jboss.as.controller] (management-handler-thread - 20) WFLYCTL0357: Notification of type deployment-undeployed is not described for the resource at the address []
+2016-11-03 09:10:35,567 INFO  [org.jboss.as.server] (management-handler-thread - 20) WFLYSRV0009: Undeployed "quiz" (runtime-name: "quiz.war")
+2016-11-03 09:10:35,648 INFO  [org.jboss.as.server.deployment] (MSC service thread 1-1) WFLYSRV0027: Starting deployment of "quiz" (runtime-name: "quiz.war")
+2016-11-03 09:10:35,825 INFO  [org.jboss.as.jpa] (MSC service thread 1-2) WFLYJPA0002: Read persistence.xml for DB
+2016-11-03 09:10:35,856 INFO  [org.jboss.as.jpa] (ServerService Thread Pool -- 91) WFLYJPA0010: Starting Persistence Unit (phase 1 of 2) Service 'quiz#DB'
+2016-11-03 09:10:35,856 INFO  [org.jboss.weld.deployer] (MSC service thread 1-7) WFLYWELD0003: Processing weld deployment quiz.war
+2016-11-03 09:10:35,856 INFO  [org.hibernate.jpa.internal.util.LogHelper] (ServerService Thread Pool -- 91) HHH000204: Processing PersistenceUnitInfo [
+	name: DB
+	...]
+2016-11-03 09:10:35,904 INFO  [org.jboss.as.jpa] (ServerService Thread Pool -- 91) WFLYJPA0010: Starting Persistence Unit (phase 2 of 2) Service 'quiz#DB'
+2016-11-03 09:10:35,905 INFO  [org.hibernate.dialect.Dialect] (ServerService Thread Pool -- 91) HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+2016-11-03 09:10:35,906 WARN  [org.hibernate.dialect.H2Dialect] (ServerService Thread Pool -- 91) HHH000431: Unable to determine H2 database version, certain features may not work
+2016-11-03 09:10:35,911 INFO  [org.hibernate.envers.boot.internal.EnversServiceImpl] (ServerService Thread Pool -- 91) Envers integration enabled? : true
+2016-11-03 09:10:35,974 INFO  [org.hibernate.tool.hbm2ddl.SchemaExport] (ServerService Thread Pool -- 91) HHH000227: Running hbm2ddl schema export
+2016-11-03 09:10:35,975 INFO  [stdout] (ServerService Thread Pool -- 91) Hibernate: drop table Answer if exists
+2016-11-03 09:10:35,975 INFO  [stdout] (ServerService Thread Pool -- 91) Hibernate: drop table Category if exists
+2016-11-03 09:10:35,976 INFO  [stdout] (ServerService Thread Pool -- 91) Hibernate: drop table Question if exists
+2016-11-03 09:10:35,976 INFO  [stdout] (ServerService Thread Pool -- 91) Hibernate: drop table Question_Answer if exists
+2016-11-03 09:10:35,976 INFO  [stdout] (ServerService Thread Pool -- 91) Hibernate: drop table Quiz if exists
+2016-11-03 09:10:35,976 INFO  [stdout] (ServerService Thread Pool -- 91) Hibernate: drop sequence if exists hibernate_sequence
+2016-11-03 09:10:35,976 INFO  [stdout] (ServerService Thread Pool -- 91) Hibernate: create sequence hibernate_sequence start with 1 increment by 1
+2016-11-03 09:10:35,977 INFO  [stdout] (ServerService Thread Pool -- 91) Hibernate: create table Answer (id bigint not null, answer varchar(255), isCorrect boolean not null, primary key (id))
+2016-11-03 09:10:35,977 INFO  [stdout] (ServerService Thread Pool -- 91) Hibernate: create table Category (id bigint not null, categoryEnum varchar(255), level integer not null, subCategory_id bigint, primary key (id))
+2016-11-03 09:10:35,978 INFO  [stdout] (ServerService Thread Pool -- 91) Hibernate: create table Question (id bigint not null, question varchar(255), category_id bigint, primary key (id))
+2016-11-03 09:10:35,978 INFO  [stdout] (ServerService Thread Pool -- 91) Hibernate: create table Question_Answer (Question_id bigint not null, answers_id bigint not null)
+2016-11-03 09:10:35,979 INFO  [stdout] (ServerService Thread Pool -- 91) Hibernate: create table Quiz (id bigint not null, category_id bigint, question_id bigint, primary key (id))
+2016-11-03 09:10:35,979 INFO  [stdout] (ServerService Thread Pool -- 91) Hibernate: alter table Question_Answer add constraint UK_mtd6dwvb7winafyb55ulyfy4n unique (answers_id)
+2016-11-03 09:10:35,980 INFO  [stdout] (ServerService Thread Pool -- 91) Hibernate: alter table Category add constraint FK68vip5ot0r5v1v6f4ycut71pl foreign key (subCategory_id) references Category
+2016-11-03 09:10:35,981 INFO  [stdout] (ServerService Thread Pool -- 91) Hibernate: alter table Question add constraint FKcfk2lqxngafrq0vyrjemeiu4r foreign key (category_id) references Category
+2016-11-03 09:10:35,983 INFO  [stdout] (ServerService Thread Pool -- 91) Hibernate: alter table Question_Answer add constraint FKsijqdwe52lj914qx22w8bb5nj foreign key (answers_id) references Answer
+2016-11-03 09:10:35,984 INFO  [stdout] (ServerService Thread Pool -- 91) Hibernate: alter table Question_Answer add constraint FKdovdxegcb1fececsvgg6gd4sk foreign key (Question_id) references Question
+2016-11-03 09:10:35,985 INFO  [stdout] (ServerService Thread Pool -- 91) Hibernate: alter table Quiz add constraint FKf79qq9dyysws9ldqi7cok673y foreign key (category_id) references Category
+2016-11-03 09:10:35,987 INFO  [stdout] (ServerService Thread Pool -- 91) Hibernate: alter table Quiz add constraint FKenk5v74e3l1luxd65adsssu29 foreign key (question_id) references Question
+2016-11-03 09:10:35,988 INFO  [org.hibernate.tool.hbm2ddl.SchemaExport] (ServerService Thread Pool -- 91) HHH000230: Schema export complete
+2016-11-03 09:10:36,216 INFO  [org.jboss.resteasy.resteasy_jaxrs.i18n] (ServerService Thread Pool -- 91) RESTEASY002225: Deploying javax.ws.rs.core.Application: class com.woact.dolplads.quiz.RestConfig$Proxy$_$$_WeldClientProxy
+2016-11-03 09:10:36,223 INFO  [org.wildfly.extension.undertow] (ServerService Thread Pool -- 91) WFLYUT0021: Registered web context: /quiz
+2016-11-03 09:10:36,232 INFO  [org.jboss.as.server] (management-handler-thread - 20) WFLYSRV0010: Deployed "quiz" (runtime-name : "quiz.war")
+2016-11-03 09:15:14,438 INFO  [org.wildfly.extension.undertow] (ServerService Thread Pool -- 92) WFLYUT0022: Unregistered web context: /quiz
+2016-11-03 09:15:14,450 INFO  [org.jboss.as.jpa] (ServerService Thread Pool -- 94) WFLYJPA0011: Stopping Persistence Unit (phase 2 of 2) Service 'quiz#DB'
+2016-11-03 09:15:14,451 INFO  [org.hibernate.tool.hbm2ddl.SchemaExport] (ServerService Thread Pool -- 94) HHH000227: Running hbm2ddl schema export
+2016-11-03 09:15:14,452 INFO  [stdout] (ServerService Thread Pool -- 94) Hibernate: drop table Answer if exists
+2016-11-03 09:15:14,453 INFO  [stdout] (ServerService Thread Pool -- 94) Hibernate: drop table Category if exists
+2016-11-03 09:15:14,454 INFO  [stdout] (ServerService Thread Pool -- 94) Hibernate: drop table Question if exists
+2016-11-03 09:15:14,454 INFO  [stdout] (ServerService Thread Pool -- 94) Hibernate: drop table Question_Answer if exists
+2016-11-03 09:15:14,455 INFO  [stdout] (ServerService Thread Pool -- 94) Hibernate: drop table Quiz if exists
+2016-11-03 09:15:14,457 INFO  [stdout] (ServerService Thread Pool -- 94) Hibernate: drop sequence if exists hibernate_sequence
+2016-11-03 09:15:14,459 INFO  [org.hibernate.tool.hbm2ddl.SchemaExport] (ServerService Thread Pool -- 94) HHH000230: Schema export complete
+2016-11-03 09:15:14,473 INFO  [org.jboss.as.jpa] (ServerService Thread Pool -- 94) WFLYJPA0011: Stopping Persistence Unit (phase 1 of 2) Service 'quiz#DB'
+2016-11-03 09:15:14,495 INFO  [org.jboss.as.server.deployment] (MSC service thread 1-7) WFLYSRV0028: Stopped deployment quiz (runtime-name: quiz.war) in 57ms
+2016-11-03 09:15:14,503 WARN  [org.jboss.as.controller] (management-handler-thread - 23) WFLYCTL0357: Notification of type deployment-undeployed is not described for the resource at the address []
+2016-11-03 09:15:14,504 INFO  [org.jboss.as.server] (management-handler-thread - 23) WFLYSRV0009: Undeployed "quiz" (runtime-name: "quiz.war")
+2016-11-03 09:15:14,572 INFO  [org.jboss.as.server.deployment] (MSC service thread 1-7) WFLYSRV0027: Starting deployment of "quiz" (runtime-name: "quiz.war")
+2016-11-03 09:15:14,747 INFO  [org.jboss.as.jpa] (MSC service thread 1-3) WFLYJPA0002: Read persistence.xml for DB
+2016-11-03 09:15:14,778 INFO  [org.jboss.as.jpa] (ServerService Thread Pool -- 94) WFLYJPA0010: Starting Persistence Unit (phase 1 of 2) Service 'quiz#DB'
+2016-11-03 09:15:14,779 INFO  [org.hibernate.jpa.internal.util.LogHelper] (ServerService Thread Pool -- 94) HHH000204: Processing PersistenceUnitInfo [
+	name: DB
+	...]
+2016-11-03 09:15:14,780 INFO  [org.jboss.weld.deployer] (MSC service thread 1-8) WFLYWELD0003: Processing weld deployment quiz.war
+2016-11-03 09:15:14,830 INFO  [org.jboss.as.jpa] (ServerService Thread Pool -- 94) WFLYJPA0010: Starting Persistence Unit (phase 2 of 2) Service 'quiz#DB'
+2016-11-03 09:15:14,832 INFO  [org.hibernate.dialect.Dialect] (ServerService Thread Pool -- 94) HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+2016-11-03 09:15:14,832 WARN  [org.hibernate.dialect.H2Dialect] (ServerService Thread Pool -- 94) HHH000431: Unable to determine H2 database version, certain features may not work
+2016-11-03 09:15:14,836 INFO  [org.hibernate.envers.boot.internal.EnversServiceImpl] (ServerService Thread Pool -- 94) Envers integration enabled? : true
+2016-11-03 09:15:14,905 INFO  [org.hibernate.tool.hbm2ddl.SchemaExport] (ServerService Thread Pool -- 94) HHH000227: Running hbm2ddl schema export
+2016-11-03 09:15:14,908 INFO  [stdout] (ServerService Thread Pool -- 94) Hibernate: drop table Answer if exists
+2016-11-03 09:15:14,908 INFO  [stdout] (ServerService Thread Pool -- 94) Hibernate: drop table Category if exists
+2016-11-03 09:15:14,908 INFO  [stdout] (ServerService Thread Pool -- 94) Hibernate: drop table Question if exists
+2016-11-03 09:15:14,909 INFO  [stdout] (ServerService Thread Pool -- 94) Hibernate: drop table Question_Answer if exists
+2016-11-03 09:15:14,909 INFO  [stdout] (ServerService Thread Pool -- 94) Hibernate: drop table Quiz if exists
+2016-11-03 09:15:14,909 INFO  [stdout] (ServerService Thread Pool -- 94) Hibernate: drop sequence if exists hibernate_sequence
+2016-11-03 09:15:14,909 INFO  [stdout] (ServerService Thread Pool -- 94) Hibernate: create sequence hibernate_sequence start with 1 increment by 1
+2016-11-03 09:15:14,909 INFO  [stdout] (ServerService Thread Pool -- 94) Hibernate: create table Answer (id bigint not null, answer varchar(255), isCorrect boolean not null, primary key (id))
+2016-11-03 09:15:14,910 INFO  [stdout] (ServerService Thread Pool -- 94) Hibernate: create table Category (id bigint not null, categoryEnum varchar(255), level integer not null, subCategory_id bigint, primary key (id))
+2016-11-03 09:15:14,910 INFO  [stdout] (ServerService Thread Pool -- 94) Hibernate: create table Question (id bigint not null, question varchar(255), category_id bigint, primary key (id))
+2016-11-03 09:15:14,911 INFO  [stdout] (ServerService Thread Pool -- 94) Hibernate: create table Question_Answer (Question_id bigint not null, answers_id bigint not null)
+2016-11-03 09:15:14,911 INFO  [stdout] (ServerService Thread Pool -- 94) Hibernate: create table Quiz (id bigint not null, category_id bigint, question_id bigint, primary key (id))
+2016-11-03 09:15:14,912 INFO  [stdout] (ServerService Thread Pool -- 94) Hibernate: alter table Question_Answer add constraint UK_mtd6dwvb7winafyb55ulyfy4n unique (answers_id)
+2016-11-03 09:15:14,912 INFO  [stdout] (ServerService Thread Pool -- 94) Hibernate: alter table Category add constraint FK68vip5ot0r5v1v6f4ycut71pl foreign key (subCategory_id) references Category
+2016-11-03 09:15:14,914 INFO  [stdout] (ServerService Thread Pool -- 94) Hibernate: alter table Question add constraint FKcfk2lqxngafrq0vyrjemeiu4r foreign key (category_id) references Category
+2016-11-03 09:15:14,915 INFO  [stdout] (ServerService Thread Pool -- 94) Hibernate: alter table Question_Answer add constraint FKsijqdwe52lj914qx22w8bb5nj foreign key (answers_id) references Answer
+2016-11-03 09:15:14,917 INFO  [stdout] (ServerService Thread Pool -- 94) Hibernate: alter table Question_Answer add constraint FKdovdxegcb1fececsvgg6gd4sk foreign key (Question_id) references Question
+2016-11-03 09:15:14,920 INFO  [stdout] (ServerService Thread Pool -- 94) Hibernate: alter table Quiz add constraint FKf79qq9dyysws9ldqi7cok673y foreign key (category_id) references Category
+2016-11-03 09:15:14,922 INFO  [stdout] (ServerService Thread Pool -- 94) Hibernate: alter table Quiz add constraint FKenk5v74e3l1luxd65adsssu29 foreign key (question_id) references Question
+2016-11-03 09:15:14,923 INFO  [org.hibernate.tool.hbm2ddl.SchemaExport] (ServerService Thread Pool -- 94) HHH000230: Schema export complete
+2016-11-03 09:15:15,170 INFO  [org.jboss.resteasy.resteasy_jaxrs.i18n] (ServerService Thread Pool -- 95) RESTEASY002225: Deploying javax.ws.rs.core.Application: class com.woact.dolplads.quiz.RestConfig$Proxy$_$$_WeldClientProxy
+2016-11-03 09:15:15,176 INFO  [org.wildfly.extension.undertow] (ServerService Thread Pool -- 95) WFLYUT0021: Registered web context: /quiz
+2016-11-03 09:15:15,185 INFO  [org.jboss.as.server] (management-handler-thread - 23) WFLYSRV0010: Deployed "quiz" (runtime-name : "quiz.war")
+2016-11-03 09:15:38,816 INFO  [org.wildfly.extension.undertow] (ServerService Thread Pool -- 96) WFLYUT0022: Unregistered web context: /quiz
+2016-11-03 09:15:38,829 INFO  [org.jboss.as.jpa] (ServerService Thread Pool -- 99) WFLYJPA0011: Stopping Persistence Unit (phase 2 of 2) Service 'quiz#DB'
+2016-11-03 09:15:38,829 INFO  [org.hibernate.tool.hbm2ddl.SchemaExport] (ServerService Thread Pool -- 99) HHH000227: Running hbm2ddl schema export
+2016-11-03 09:15:38,830 INFO  [stdout] (ServerService Thread Pool -- 99) Hibernate: drop table Answer if exists
+2016-11-03 09:15:38,831 INFO  [stdout] (ServerService Thread Pool -- 99) Hibernate: drop table Category if exists
+2016-11-03 09:15:38,832 INFO  [stdout] (ServerService Thread Pool -- 99) Hibernate: drop table Question if exists
+2016-11-03 09:15:38,833 INFO  [stdout] (ServerService Thread Pool -- 99) Hibernate: drop table Question_Answer if exists
+2016-11-03 09:15:38,833 INFO  [stdout] (ServerService Thread Pool -- 99) Hibernate: drop table Quiz if exists
+2016-11-03 09:15:38,834 INFO  [stdout] (ServerService Thread Pool -- 99) Hibernate: drop sequence if exists hibernate_sequence
+2016-11-03 09:15:38,835 INFO  [org.hibernate.tool.hbm2ddl.SchemaExport] (ServerService Thread Pool -- 99) HHH000230: Schema export complete
+2016-11-03 09:15:38,843 INFO  [org.jboss.as.jpa] (ServerService Thread Pool -- 99) WFLYJPA0011: Stopping Persistence Unit (phase 1 of 2) Service 'quiz#DB'
+2016-11-03 09:15:38,853 INFO  [org.jboss.as.server.deployment] (MSC service thread 1-3) WFLYSRV0028: Stopped deployment quiz (runtime-name: quiz.war) in 36ms
+2016-11-03 09:15:38,861 WARN  [org.jboss.as.controller] (management-handler-thread - 24) WFLYCTL0357: Notification of type deployment-undeployed is not described for the resource at the address []
+2016-11-03 09:15:38,862 INFO  [org.jboss.as.server] (management-handler-thread - 24) WFLYSRV0009: Undeployed "quiz" (runtime-name: "quiz.war")
+2016-11-03 09:15:38,941 INFO  [org.jboss.as.server.deployment] (MSC service thread 1-1) WFLYSRV0027: Starting deployment of "quiz" (runtime-name: "quiz.war")
+2016-11-03 09:15:39,080 INFO  [org.jboss.as.jpa] (MSC service thread 1-2) WFLYJPA0002: Read persistence.xml for DB
+2016-11-03 09:15:39,110 INFO  [org.jboss.as.jpa] (ServerService Thread Pool -- 98) WFLYJPA0010: Starting Persistence Unit (phase 1 of 2) Service 'quiz#DB'
+2016-11-03 09:15:39,110 INFO  [org.jboss.weld.deployer] (MSC service thread 1-1) WFLYWELD0003: Processing weld deployment quiz.war
+2016-11-03 09:15:39,110 INFO  [org.hibernate.jpa.internal.util.LogHelper] (ServerService Thread Pool -- 98) HHH000204: Processing PersistenceUnitInfo [
+	name: DB
+	...]
+2016-11-03 09:15:39,159 INFO  [org.jboss.as.jpa] (ServerService Thread Pool -- 98) WFLYJPA0010: Starting Persistence Unit (phase 2 of 2) Service 'quiz#DB'
+2016-11-03 09:15:39,161 INFO  [org.hibernate.dialect.Dialect] (ServerService Thread Pool -- 98) HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+2016-11-03 09:15:39,161 WARN  [org.hibernate.dialect.H2Dialect] (ServerService Thread Pool -- 98) HHH000431: Unable to determine H2 database version, certain features may not work
+2016-11-03 09:15:39,166 INFO  [org.hibernate.envers.boot.internal.EnversServiceImpl] (ServerService Thread Pool -- 98) Envers integration enabled? : true
+2016-11-03 09:15:39,226 INFO  [org.hibernate.tool.hbm2ddl.SchemaExport] (ServerService Thread Pool -- 98) HHH000227: Running hbm2ddl schema export
+2016-11-03 09:15:39,227 INFO  [stdout] (ServerService Thread Pool -- 98) Hibernate: drop table Answer if exists
+2016-11-03 09:15:39,228 INFO  [stdout] (ServerService Thread Pool -- 98) Hibernate: drop table Category if exists
+2016-11-03 09:15:39,228 INFO  [stdout] (ServerService Thread Pool -- 98) Hibernate: drop table Question if exists
+2016-11-03 09:15:39,228 INFO  [stdout] (ServerService Thread Pool -- 98) Hibernate: drop table Question_Answer if exists
+2016-11-03 09:15:39,228 INFO  [stdout] (ServerService Thread Pool -- 98) Hibernate: drop table Quiz if exists
+2016-11-03 09:15:39,229 INFO  [stdout] (ServerService Thread Pool -- 98) Hibernate: drop sequence if exists hibernate_sequence
+2016-11-03 09:15:39,229 INFO  [stdout] (ServerService Thread Pool -- 98) Hibernate: create sequence hibernate_sequence start with 1 increment by 1
+2016-11-03 09:15:39,229 INFO  [stdout] (ServerService Thread Pool -- 98) Hibernate: create table Answer (id bigint not null, answer varchar(255), isCorrect boolean not null, primary key (id))
+2016-11-03 09:15:39,230 INFO  [stdout] (ServerService Thread Pool -- 98) Hibernate: create table Category (id bigint not null, categoryEnum varchar(255), level integer not null, subCategory_id bigint, primary key (id))
+2016-11-03 09:15:39,230 INFO  [stdout] (ServerService Thread Pool -- 98) Hibernate: create table Question (id bigint not null, question varchar(255), category_id bigint, primary key (id))
+2016-11-03 09:15:39,231 INFO  [stdout] (ServerService Thread Pool -- 98) Hibernate: create table Question_Answer (Question_id bigint not null, answers_id bigint not null)
+2016-11-03 09:15:39,231 INFO  [stdout] (ServerService Thread Pool -- 98) Hibernate: create table Quiz (id bigint not null, category_id bigint, question_id bigint, primary key (id))
+2016-11-03 09:15:39,232 INFO  [stdout] (ServerService Thread Pool -- 98) Hibernate: alter table Question_Answer add constraint UK_mtd6dwvb7winafyb55ulyfy4n unique (answers_id)
+2016-11-03 09:15:39,232 INFO  [stdout] (ServerService Thread Pool -- 98) Hibernate: alter table Category add constraint FK68vip5ot0r5v1v6f4ycut71pl foreign key (subCategory_id) references Category
+2016-11-03 09:15:39,233 INFO  [stdout] (ServerService Thread Pool -- 98) Hibernate: alter table Question add constraint FKcfk2lqxngafrq0vyrjemeiu4r foreign key (category_id) references Category
+2016-11-03 09:15:39,235 INFO  [stdout] (ServerService Thread Pool -- 98) Hibernate: alter table Question_Answer add constraint FKsijqdwe52lj914qx22w8bb5nj foreign key (answers_id) references Answer
+2016-11-03 09:15:39,236 INFO  [stdout] (ServerService Thread Pool -- 98) Hibernate: alter table Question_Answer add constraint FKdovdxegcb1fececsvgg6gd4sk foreign key (Question_id) references Question
+2016-11-03 09:15:39,238 INFO  [stdout] (ServerService Thread Pool -- 98) Hibernate: alter table Quiz add constraint FKf79qq9dyysws9ldqi7cok673y foreign key (category_id) references Category
+2016-11-03 09:15:39,239 INFO  [stdout] (ServerService Thread Pool -- 98) Hibernate: alter table Quiz add constraint FKenk5v74e3l1luxd65adsssu29 foreign key (question_id) references Question
+2016-11-03 09:15:39,240 INFO  [org.hibernate.tool.hbm2ddl.SchemaExport] (ServerService Thread Pool -- 98) HHH000230: Schema export complete
+2016-11-03 09:15:39,436 INFO  [org.jboss.resteasy.resteasy_jaxrs.i18n] (ServerService Thread Pool -- 98) RESTEASY002225: Deploying javax.ws.rs.core.Application: class com.woact.dolplads.quiz.RestConfig$Proxy$_$$_WeldClientProxy
+2016-11-03 09:15:39,443 INFO  [org.wildfly.extension.undertow] (ServerService Thread Pool -- 98) WFLYUT0021: Registered web context: /quiz
+2016-11-03 09:15:39,451 INFO  [org.jboss.as.server] (management-handler-thread - 24) WFLYSRV0010: Deployed "quiz" (runtime-name : "quiz.war")
+2016-11-03 09:15:59,876 INFO  [org.wildfly.extension.undertow] (ServerService Thread Pool -- 100) WFLYUT0022: Unregistered web context: /quiz
+2016-11-03 09:15:59,900 INFO  [org.jboss.as.jpa] (ServerService Thread Pool -- 103) WFLYJPA0011: Stopping Persistence Unit (phase 2 of 2) Service 'quiz#DB'
+2016-11-03 09:15:59,900 INFO  [org.hibernate.tool.hbm2ddl.SchemaExport] (ServerService Thread Pool -- 103) HHH000227: Running hbm2ddl schema export
+2016-11-03 09:15:59,901 INFO  [stdout] (ServerService Thread Pool -- 103) Hibernate: drop table Answer if exists
+2016-11-03 09:15:59,902 INFO  [stdout] (ServerService Thread Pool -- 103) Hibernate: drop table Category if exists
+2016-11-03 09:15:59,903 INFO  [stdout] (ServerService Thread Pool -- 103) Hibernate: drop table Question if exists
+2016-11-03 09:15:59,904 INFO  [stdout] (ServerService Thread Pool -- 103) Hibernate: drop table Question_Answer if exists
+2016-11-03 09:15:59,904 INFO  [stdout] (ServerService Thread Pool -- 103) Hibernate: drop table Quiz if exists
+2016-11-03 09:15:59,905 INFO  [stdout] (ServerService Thread Pool -- 103) Hibernate: drop sequence if exists hibernate_sequence
+2016-11-03 09:15:59,906 INFO  [org.hibernate.tool.hbm2ddl.SchemaExport] (ServerService Thread Pool -- 103) HHH000230: Schema export complete
+2016-11-03 09:15:59,908 INFO  [org.jboss.as.jpa] (ServerService Thread Pool -- 103) WFLYJPA0011: Stopping Persistence Unit (phase 1 of 2) Service 'quiz#DB'
+2016-11-03 09:15:59,916 INFO  [org.jboss.as.server.deployment] (MSC service thread 1-4) WFLYSRV0028: Stopped deployment quiz (runtime-name: quiz.war) in 40ms
+2016-11-03 09:15:59,924 WARN  [org.jboss.as.controller] (management-handler-thread - 21) WFLYCTL0357: Notification of type deployment-undeployed is not described for the resource at the address []
+2016-11-03 09:15:59,924 INFO  [org.jboss.as.server] (management-handler-thread - 21) WFLYSRV0009: Undeployed "quiz" (runtime-name: "quiz.war")
+2016-11-03 09:15:59,998 INFO  [org.jboss.as.server.deployment] (MSC service thread 1-2) WFLYSRV0027: Starting deployment of "quiz" (runtime-name: "quiz.war")
+2016-11-03 09:16:00,154 INFO  [org.jboss.as.jpa] (MSC service thread 1-2) WFLYJPA0002: Read persistence.xml for DB
+2016-11-03 09:16:00,190 INFO  [org.jboss.as.jpa] (ServerService Thread Pool -- 102) WFLYJPA0010: Starting Persistence Unit (phase 1 of 2) Service 'quiz#DB'
+2016-11-03 09:16:00,190 INFO  [org.hibernate.jpa.internal.util.LogHelper] (ServerService Thread Pool -- 102) HHH000204: Processing PersistenceUnitInfo [
+	name: DB
+	...]
+2016-11-03 09:16:00,191 INFO  [org.jboss.weld.deployer] (MSC service thread 1-8) WFLYWELD0003: Processing weld deployment quiz.war
+2016-11-03 09:16:00,241 INFO  [org.jboss.as.jpa] (ServerService Thread Pool -- 102) WFLYJPA0010: Starting Persistence Unit (phase 2 of 2) Service 'quiz#DB'
+2016-11-03 09:16:00,243 INFO  [org.hibernate.dialect.Dialect] (ServerService Thread Pool -- 102) HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+2016-11-03 09:16:00,243 WARN  [org.hibernate.dialect.H2Dialect] (ServerService Thread Pool -- 102) HHH000431: Unable to determine H2 database version, certain features may not work
+2016-11-03 09:16:00,247 INFO  [org.hibernate.envers.boot.internal.EnversServiceImpl] (ServerService Thread Pool -- 102) Envers integration enabled? : true
+2016-11-03 09:16:00,314 INFO  [org.hibernate.tool.hbm2ddl.SchemaExport] (ServerService Thread Pool -- 102) HHH000227: Running hbm2ddl schema export
+2016-11-03 09:16:00,315 INFO  [stdout] (ServerService Thread Pool -- 102) Hibernate: drop table Answer if exists
+2016-11-03 09:16:00,315 INFO  [stdout] (ServerService Thread Pool -- 102) Hibernate: drop table Category if exists
+2016-11-03 09:16:00,315 INFO  [stdout] (ServerService Thread Pool -- 102) Hibernate: drop table Question if exists
+2016-11-03 09:16:00,315 INFO  [stdout] (ServerService Thread Pool -- 102) Hibernate: drop table Question_Answer if exists
+2016-11-03 09:16:00,316 INFO  [stdout] (ServerService Thread Pool -- 102) Hibernate: drop table Quiz if exists
+2016-11-03 09:16:00,316 INFO  [stdout] (ServerService Thread Pool -- 102) Hibernate: drop sequence if exists hibernate_sequence
+2016-11-03 09:16:00,316 INFO  [stdout] (ServerService Thread Pool -- 102) Hibernate: create sequence hibernate_sequence start with 1 increment by 1
+2016-11-03 09:16:00,316 INFO  [stdout] (ServerService Thread Pool -- 102) Hibernate: create table Answer (id bigint not null, answer varchar(255), isCorrect boolean not null, primary key (id))
+2016-11-03 09:16:00,317 INFO  [stdout] (ServerService Thread Pool -- 102) Hibernate: create table Category (id bigint not null, categoryEnum varchar(255), level integer not null, subCategory_id bigint, primary key (id))
+2016-11-03 09:16:00,318 INFO  [stdout] (ServerService Thread Pool -- 102) Hibernate: create table Question (id bigint not null, question varchar(255), category_id bigint, primary key (id))
+2016-11-03 09:16:00,319 INFO  [stdout] (ServerService Thread Pool -- 102) Hibernate: create table Question_Answer (Question_id bigint not null, answers_id bigint not null)
+2016-11-03 09:16:00,321 INFO  [stdout] (ServerService Thread Pool -- 102) Hibernate: create table Quiz (id bigint not null, category_id bigint, question_id bigint, primary key (id))
+2016-11-03 09:16:00,321 INFO  [stdout] (ServerService Thread Pool -- 102) Hibernate: alter table Question_Answer add constraint UK_mtd6dwvb7winafyb55ulyfy4n unique (answers_id)
+2016-11-03 09:16:00,322 INFO  [stdout] (ServerService Thread Pool -- 102) Hibernate: alter table Category add constraint FK68vip5ot0r5v1v6f4ycut71pl foreign key (subCategory_id) references Category
+2016-11-03 09:16:00,323 INFO  [stdout] (ServerService Thread Pool -- 102) Hibernate: alter table Question add constraint FKcfk2lqxngafrq0vyrjemeiu4r foreign key (category_id) references Category
+2016-11-03 09:16:00,324 INFO  [stdout] (ServerService Thread Pool -- 102) Hibernate: alter table Question_Answer add constraint FKsijqdwe52lj914qx22w8bb5nj foreign key (answers_id) references Answer
+2016-11-03 09:16:00,325 INFO  [stdout] (ServerService Thread Pool -- 102) Hibernate: alter table Question_Answer add constraint FKdovdxegcb1fececsvgg6gd4sk foreign key (Question_id) references Question
+2016-11-03 09:16:00,329 INFO  [stdout] (ServerService Thread Pool -- 102) Hibernate: alter table Quiz add constraint FKf79qq9dyysws9ldqi7cok673y foreign key (category_id) references Category
+2016-11-03 09:16:00,330 INFO  [stdout] (ServerService Thread Pool -- 102) Hibernate: alter table Quiz add constraint FKenk5v74e3l1luxd65adsssu29 foreign key (question_id) references Question
+2016-11-03 09:16:00,331 INFO  [org.hibernate.tool.hbm2ddl.SchemaExport] (ServerService Thread Pool -- 102) HHH000230: Schema export complete
+2016-11-03 09:16:00,511 INFO  [org.jboss.resteasy.resteasy_jaxrs.i18n] (ServerService Thread Pool -- 102) RESTEASY002225: Deploying javax.ws.rs.core.Application: class com.woact.dolplads.quiz.RestConfig$Proxy$_$$_WeldClientProxy
+2016-11-03 09:16:00,518 INFO  [org.wildfly.extension.undertow] (ServerService Thread Pool -- 102) WFLYUT0021: Registered web context: /quiz
+2016-11-03 09:16:00,531 INFO  [org.jboss.as.server] (management-handler-thread - 21) WFLYSRV0010: Deployed "quiz" (runtime-name : "quiz.war")
+2016-11-03 09:20:25,120 INFO  [org.wildfly.extension.undertow] (ServerService Thread Pool -- 104) WFLYUT0022: Unregistered web context: /quiz
+2016-11-03 09:20:25,131 INFO  [org.jboss.as.jpa] (ServerService Thread Pool -- 107) WFLYJPA0011: Stopping Persistence Unit (phase 2 of 2) Service 'quiz#DB'
+2016-11-03 09:20:25,131 INFO  [org.hibernate.tool.hbm2ddl.SchemaExport] (ServerService Thread Pool -- 107) HHH000227: Running hbm2ddl schema export
+2016-11-03 09:20:25,133 INFO  [stdout] (ServerService Thread Pool -- 107) Hibernate: drop table Answer if exists
+2016-11-03 09:20:25,133 INFO  [stdout] (ServerService Thread Pool -- 107) Hibernate: drop table Category if exists
+2016-11-03 09:20:25,134 INFO  [stdout] (ServerService Thread Pool -- 107) Hibernate: drop table Question if exists
+2016-11-03 09:20:25,135 INFO  [stdout] (ServerService Thread Pool -- 107) Hibernate: drop table Question_Answer if exists
+2016-11-03 09:20:25,135 INFO  [stdout] (ServerService Thread Pool -- 107) Hibernate: drop table Quiz if exists
+2016-11-03 09:20:25,136 INFO  [stdout] (ServerService Thread Pool -- 107) Hibernate: drop sequence if exists hibernate_sequence
+2016-11-03 09:20:25,136 INFO  [org.hibernate.tool.hbm2ddl.SchemaExport] (ServerService Thread Pool -- 107) HHH000230: Schema export complete
+2016-11-03 09:20:25,139 INFO  [org.jboss.as.jpa] (ServerService Thread Pool -- 107) WFLYJPA0011: Stopping Persistence Unit (phase 1 of 2) Service 'quiz#DB'
+2016-11-03 09:20:25,159 INFO  [org.jboss.as.server.deployment] (MSC service thread 1-5) WFLYSRV0028: Stopped deployment quiz (runtime-name: quiz.war) in 39ms
+2016-11-03 09:20:25,169 WARN  [org.jboss.as.controller] (management-handler-thread - 27) WFLYCTL0357: Notification of type deployment-undeployed is not described for the resource at the address []
+2016-11-03 09:20:25,170 INFO  [org.jboss.as.server] (management-handler-thread - 27) WFLYSRV0009: Undeployed "quiz" (runtime-name: "quiz.war")
+2016-11-03 09:20:25,265 INFO  [org.jboss.as.server.deployment] (MSC service thread 1-2) WFLYSRV0027: Starting deployment of "quiz" (runtime-name: "quiz.war")
+2016-11-03 09:20:25,446 INFO  [org.jboss.as.jpa] (MSC service thread 1-3) WFLYJPA0002: Read persistence.xml for DB
+2016-11-03 09:20:25,475 INFO  [org.jboss.as.jpa] (ServerService Thread Pool -- 106) WFLYJPA0010: Starting Persistence Unit (phase 1 of 2) Service 'quiz#DB'
+2016-11-03 09:20:25,476 INFO  [org.hibernate.jpa.internal.util.LogHelper] (ServerService Thread Pool -- 106) HHH000204: Processing PersistenceUnitInfo [
+	name: DB
+	...]
+2016-11-03 09:20:25,476 INFO  [org.jboss.weld.deployer] (MSC service thread 1-6) WFLYWELD0003: Processing weld deployment quiz.war
+2016-11-03 09:20:25,520 INFO  [org.jboss.as.jpa] (ServerService Thread Pool -- 106) WFLYJPA0010: Starting Persistence Unit (phase 2 of 2) Service 'quiz#DB'
+2016-11-03 09:20:25,521 INFO  [org.hibernate.dialect.Dialect] (ServerService Thread Pool -- 106) HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+2016-11-03 09:20:25,522 WARN  [org.hibernate.dialect.H2Dialect] (ServerService Thread Pool -- 106) HHH000431: Unable to determine H2 database version, certain features may not work
+2016-11-03 09:20:25,526 INFO  [org.hibernate.envers.boot.internal.EnversServiceImpl] (ServerService Thread Pool -- 106) Envers integration enabled? : true
+2016-11-03 09:20:25,579 INFO  [org.hibernate.tool.hbm2ddl.SchemaExport] (ServerService Thread Pool -- 106) HHH000227: Running hbm2ddl schema export
+2016-11-03 09:20:25,581 INFO  [stdout] (ServerService Thread Pool -- 106) Hibernate: drop table Answer if exists
+2016-11-03 09:20:25,581 INFO  [stdout] (ServerService Thread Pool -- 106) Hibernate: drop table Category if exists
+2016-11-03 09:20:25,581 INFO  [stdout] (ServerService Thread Pool -- 106) Hibernate: drop table Question if exists
+2016-11-03 09:20:25,581 INFO  [stdout] (ServerService Thread Pool -- 106) Hibernate: drop table Question_Answer if exists
+2016-11-03 09:20:25,582 INFO  [stdout] (ServerService Thread Pool -- 106) Hibernate: drop table Quiz if exists
+2016-11-03 09:20:25,582 INFO  [stdout] (ServerService Thread Pool -- 106) Hibernate: drop sequence if exists hibernate_sequence
+2016-11-03 09:20:25,582 INFO  [stdout] (ServerService Thread Pool -- 106) Hibernate: create sequence hibernate_sequence start with 1 increment by 1
+2016-11-03 09:20:25,582 INFO  [stdout] (ServerService Thread Pool -- 106) Hibernate: create table Answer (id bigint not null, answer varchar(255), isCorrect boolean not null, primary key (id))
+2016-11-03 09:20:25,583 INFO  [stdout] (ServerService Thread Pool -- 106) Hibernate: create table Category (id bigint not null, categoryEnum varchar(255), level integer not null, subCategory_id bigint, primary key (id))
+2016-11-03 09:20:25,583 INFO  [stdout] (ServerService Thread Pool -- 106) Hibernate: create table Question (id bigint not null, question varchar(255), category_id bigint, primary key (id))
+2016-11-03 09:20:25,584 INFO  [stdout] (ServerService Thread Pool -- 106) Hibernate: create table Question_Answer (Question_id bigint not null, answers_id bigint not null)
+2016-11-03 09:20:25,584 INFO  [stdout] (ServerService Thread Pool -- 106) Hibernate: create table Quiz (id bigint not null, category_id bigint, question_id bigint, primary key (id))
+2016-11-03 09:20:25,584 INFO  [stdout] (ServerService Thread Pool -- 106) Hibernate: alter table Question_Answer add constraint UK_mtd6dwvb7winafyb55ulyfy4n unique (answers_id)
+2016-11-03 09:20:25,585 INFO  [stdout] (ServerService Thread Pool -- 106) Hibernate: alter table Category add constraint FK68vip5ot0r5v1v6f4ycut71pl foreign key (subCategory_id) references Category
+2016-11-03 09:20:25,586 INFO  [stdout] (ServerService Thread Pool -- 106) Hibernate: alter table Question add constraint FKcfk2lqxngafrq0vyrjemeiu4r foreign key (category_id) references Category
+2016-11-03 09:20:25,587 INFO  [stdout] (ServerService Thread Pool -- 106) Hibernate: alter table Question_Answer add constraint FKsijqdwe52lj914qx22w8bb5nj foreign key (answers_id) references Answer
+2016-11-03 09:20:25,590 INFO  [stdout] (ServerService Thread Pool -- 106) Hibernate: alter table Question_Answer add constraint FKdovdxegcb1fececsvgg6gd4sk foreign key (Question_id) references Question
+2016-11-03 09:20:25,591 INFO  [stdout] (ServerService Thread Pool -- 106) Hibernate: alter table Quiz add constraint FKf79qq9dyysws9ldqi7cok673y foreign key (category_id) references Category
+2016-11-03 09:20:25,592 INFO  [stdout] (ServerService Thread Pool -- 106) Hibernate: alter table Quiz add constraint FKenk5v74e3l1luxd65adsssu29 foreign key (question_id) references Question
+2016-11-03 09:20:25,594 INFO  [org.hibernate.tool.hbm2ddl.SchemaExport] (ServerService Thread Pool -- 106) HHH000230: Schema export complete
+2016-11-03 09:20:25,745 INFO  [org.jboss.resteasy.resteasy_jaxrs.i18n] (ServerService Thread Pool -- 105) RESTEASY002225: Deploying javax.ws.rs.core.Application: class com.woact.dolplads.quiz.RestConfig$Proxy$_$$_WeldClientProxy
+2016-11-03 09:20:25,753 INFO  [org.wildfly.extension.undertow] (ServerService Thread Pool -- 105) WFLYUT0021: Registered web context: /quiz
+2016-11-03 09:20:25,761 INFO  [org.jboss.as.server] (management-handler-thread - 27) WFLYSRV0010: Deployed "quiz" (runtime-name : "quiz.war")
+2016-11-03 09:21:07,705 INFO  [org.wildfly.extension.undertow] (ServerService Thread Pool -- 108) WFLYUT0022: Unregistered web context: /quiz
+2016-11-03 09:21:07,715 INFO  [org.jboss.as.jpa] (ServerService Thread Pool -- 111) WFLYJPA0011: Stopping Persistence Unit (phase 2 of 2) Service 'quiz#DB'
+2016-11-03 09:21:07,716 INFO  [org.hibernate.tool.hbm2ddl.SchemaExport] (ServerService Thread Pool -- 111) HHH000227: Running hbm2ddl schema export
+2016-11-03 09:21:07,717 INFO  [stdout] (ServerService Thread Pool -- 111) Hibernate: drop table Answer if exists
+2016-11-03 09:21:07,717 INFO  [stdout] (ServerService Thread Pool -- 111) Hibernate: drop table Category if exists
+2016-11-03 09:21:07,718 INFO  [stdout] (ServerService Thread Pool -- 111) Hibernate: drop table Question if exists
+2016-11-03 09:21:07,719 INFO  [stdout] (ServerService Thread Pool -- 111) Hibernate: drop table Question_Answer if exists
+2016-11-03 09:21:07,719 INFO  [stdout] (ServerService Thread Pool -- 111) Hibernate: drop table Quiz if exists
+2016-11-03 09:21:07,719 INFO  [stdout] (ServerService Thread Pool -- 111) Hibernate: drop sequence if exists hibernate_sequence
+2016-11-03 09:21:07,720 INFO  [org.hibernate.tool.hbm2ddl.SchemaExport] (ServerService Thread Pool -- 111) HHH000230: Schema export complete
+2016-11-03 09:21:07,722 INFO  [org.jboss.as.jpa] (ServerService Thread Pool -- 111) WFLYJPA0011: Stopping Persistence Unit (phase 1 of 2) Service 'quiz#DB'
+2016-11-03 09:21:07,778 INFO  [org.jboss.as.server.deployment] (MSC service thread 1-6) WFLYSRV0028: Stopped deployment quiz (runtime-name: quiz.war) in 73ms
+2016-11-03 09:21:07,786 WARN  [org.jboss.as.controller] (management-handler-thread - 28) WFLYCTL0357: Notification of type deployment-undeployed is not described for the resource at the address []
+2016-11-03 09:21:07,787 INFO  [org.jboss.as.server] (management-handler-thread - 28) WFLYSRV0009: Undeployed "quiz" (runtime-name: "quiz.war")
+2016-11-03 09:21:07,885 INFO  [org.jboss.as.server.deployment] (MSC service thread 1-2) WFLYSRV0027: Starting deployment of "quiz" (runtime-name: "quiz.war")
+2016-11-03 09:21:08,014 INFO  [org.jboss.as.jpa] (MSC service thread 1-5) WFLYJPA0002: Read persistence.xml for DB
+2016-11-03 09:21:08,041 INFO  [org.jboss.as.jpa] (ServerService Thread Pool -- 111) WFLYJPA0010: Starting Persistence Unit (phase 1 of 2) Service 'quiz#DB'
+2016-11-03 09:21:08,042 INFO  [org.hibernate.jpa.internal.util.LogHelper] (ServerService Thread Pool -- 111) HHH000204: Processing PersistenceUnitInfo [
+	name: DB
+	...]
+2016-11-03 09:21:08,043 INFO  [org.jboss.weld.deployer] (MSC service thread 1-7) WFLYWELD0003: Processing weld deployment quiz.war
+2016-11-03 09:21:08,093 INFO  [org.jboss.as.jpa] (ServerService Thread Pool -- 111) WFLYJPA0010: Starting Persistence Unit (phase 2 of 2) Service 'quiz#DB'
+2016-11-03 09:21:08,096 INFO  [org.hibernate.dialect.Dialect] (ServerService Thread Pool -- 111) HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+2016-11-03 09:21:08,096 WARN  [org.hibernate.dialect.H2Dialect] (ServerService Thread Pool -- 111) HHH000431: Unable to determine H2 database version, certain features may not work
+2016-11-03 09:21:08,101 INFO  [org.hibernate.envers.boot.internal.EnversServiceImpl] (ServerService Thread Pool -- 111) Envers integration enabled? : true
+2016-11-03 09:21:08,157 INFO  [org.hibernate.tool.hbm2ddl.SchemaExport] (ServerService Thread Pool -- 111) HHH000227: Running hbm2ddl schema export
+2016-11-03 09:21:08,158 INFO  [stdout] (ServerService Thread Pool -- 111) Hibernate: drop table Answer if exists
+2016-11-03 09:21:08,158 INFO  [stdout] (ServerService Thread Pool -- 111) Hibernate: drop table Category if exists
+2016-11-03 09:21:08,159 INFO  [stdout] (ServerService Thread Pool -- 111) Hibernate: drop table Question if exists
+2016-11-03 09:21:08,159 INFO  [stdout] (ServerService Thread Pool -- 111) Hibernate: drop table Question_Answer if exists
+2016-11-03 09:21:08,159 INFO  [stdout] (ServerService Thread Pool -- 111) Hibernate: drop table Quiz if exists
+2016-11-03 09:21:08,159 INFO  [stdout] (ServerService Thread Pool -- 111) Hibernate: drop sequence if exists hibernate_sequence
+2016-11-03 09:21:08,159 INFO  [stdout] (ServerService Thread Pool -- 111) Hibernate: create sequence hibernate_sequence start with 1 increment by 1
+2016-11-03 09:21:08,160 INFO  [stdout] (ServerService Thread Pool -- 111) Hibernate: create table Answer (id bigint not null, answer varchar(255), isCorrect boolean not null, primary key (id))
+2016-11-03 09:21:08,160 INFO  [stdout] (ServerService Thread Pool -- 111) Hibernate: create table Category (id bigint not null, categoryEnum varchar(255), level integer not null, subCategory_id bigint, primary key (id))
+2016-11-03 09:21:08,160 INFO  [stdout] (ServerService Thread Pool -- 111) Hibernate: create table Question (id bigint not null, question varchar(255), category_id bigint, primary key (id))
+2016-11-03 09:21:08,161 INFO  [stdout] (ServerService Thread Pool -- 111) Hibernate: create table Question_Answer (Question_id bigint not null, answers_id bigint not null)
+2016-11-03 09:21:08,162 INFO  [stdout] (ServerService Thread Pool -- 111) Hibernate: create table Quiz (id bigint not null, category_id bigint, question_id bigint, primary key (id))
+2016-11-03 09:21:08,163 INFO  [stdout] (ServerService Thread Pool -- 111) Hibernate: alter table Question_Answer add constraint UK_mtd6dwvb7winafyb55ulyfy4n unique (answers_id)
+2016-11-03 09:21:08,164 INFO  [stdout] (ServerService Thread Pool -- 111) Hibernate: alter table Category add constraint FK68vip5ot0r5v1v6f4ycut71pl foreign key (subCategory_id) references Category
+2016-11-03 09:21:08,165 INFO  [stdout] (ServerService Thread Pool -- 111) Hibernate: alter table Question add constraint FKcfk2lqxngafrq0vyrjemeiu4r foreign key (category_id) references Category
+2016-11-03 09:21:08,167 INFO  [stdout] (ServerService Thread Pool -- 111) Hibernate: alter table Question_Answer add constraint FKsijqdwe52lj914qx22w8bb5nj foreign key (answers_id) references Answer
+2016-11-03 09:21:08,168 INFO  [stdout] (ServerService Thread Pool -- 111) Hibernate: alter table Question_Answer add constraint FKdovdxegcb1fececsvgg6gd4sk foreign key (Question_id) references Question
+2016-11-03 09:21:08,169 INFO  [stdout] (ServerService Thread Pool -- 111) Hibernate: alter table Quiz add constraint FKf79qq9dyysws9ldqi7cok673y foreign key (category_id) references Category
+2016-11-03 09:21:08,170 INFO  [stdout] (ServerService Thread Pool -- 111) Hibernate: alter table Quiz add constraint FKenk5v74e3l1luxd65adsssu29 foreign key (question_id) references Question
+2016-11-03 09:21:08,172 INFO  [org.hibernate.tool.hbm2ddl.SchemaExport] (ServerService Thread Pool -- 111) HHH000230: Schema export complete
+2016-11-03 09:21:08,343 INFO  [org.jboss.resteasy.resteasy_jaxrs.i18n] (ServerService Thread Pool -- 108) RESTEASY002225: Deploying javax.ws.rs.core.Application: class com.woact.dolplads.quiz.RestConfig$Proxy$_$$_WeldClientProxy
+2016-11-03 09:21:08,350 INFO  [org.wildfly.extension.undertow] (ServerService Thread Pool -- 108) WFLYUT0021: Registered web context: /quiz
+2016-11-03 09:21:08,361 INFO  [org.jboss.as.server] (management-handler-thread - 28) WFLYSRV0010: Deployed "quiz" (runtime-name : "quiz.war")
+2016-11-03 10:36:40,333 INFO  [org.wildfly.extension.undertow] (ServerService Thread Pool -- 113) WFLYUT0022: Unregistered web context: /quiz
+2016-11-03 10:36:40,358 INFO  [org.jboss.as.jpa] (ServerService Thread Pool -- 114) WFLYJPA0011: Stopping Persistence Unit (phase 2 of 2) Service 'quiz#DB'
+2016-11-03 10:36:40,359 INFO  [org.hibernate.tool.hbm2ddl.SchemaExport] (ServerService Thread Pool -- 114) HHH000227: Running hbm2ddl schema export
+2016-11-03 10:36:40,366 INFO  [stdout] (ServerService Thread Pool -- 114) Hibernate: drop table Answer if exists
+2016-11-03 10:36:40,367 INFO  [stdout] (ServerService Thread Pool -- 114) Hibernate: drop table Category if exists
+2016-11-03 10:36:40,368 INFO  [stdout] (ServerService Thread Pool -- 114) Hibernate: drop table Question if exists
+2016-11-03 10:36:40,368 INFO  [stdout] (ServerService Thread Pool -- 114) Hibernate: drop table Question_Answer if exists
+2016-11-03 10:36:40,369 INFO  [stdout] (ServerService Thread Pool -- 114) Hibernate: drop table Quiz if exists
+2016-11-03 10:36:40,369 INFO  [stdout] (ServerService Thread Pool -- 114) Hibernate: drop sequence if exists hibernate_sequence
+2016-11-03 10:36:40,370 INFO  [org.hibernate.tool.hbm2ddl.SchemaExport] (ServerService Thread Pool -- 114) HHH000230: Schema export complete
+2016-11-03 10:36:40,373 INFO  [org.jboss.as.jpa] (ServerService Thread Pool -- 114) WFLYJPA0011: Stopping Persistence Unit (phase 1 of 2) Service 'quiz#DB'
+2016-11-03 10:36:40,388 INFO  [org.jboss.as.server.deployment] (MSC service thread 1-3) WFLYSRV0028: Stopped deployment quiz (runtime-name: quiz.war) in 60ms
+2016-11-03 10:36:40,405 WARN  [org.jboss.as.controller] (management-handler-thread - 31) WFLYCTL0357: Notification of type deployment-undeployed is not described for the resource at the address []
+2016-11-03 10:36:40,405 INFO  [org.jboss.as.server] (management-handler-thread - 31) WFLYSRV0009: Undeployed "quiz" (runtime-name: "quiz.war")
+2016-11-03 10:36:40,485 INFO  [org.jboss.as.server] (management-handler-thread - 30) WFLYSRV0236: Suspending server with no timeout.
+2016-11-03 10:36:40,488 INFO  [org.jboss.as.server] (Management Triggered Shutdown) WFLYSRV0241: Shutting down in response to management operation 'shutdown'
+2016-11-03 10:36:40,508 INFO  [org.jboss.as.connector.subsystems.datasources] (MSC service thread 1-8) WFLYJCA0010: Unbound data source [java:jboss/datasources/ExampleDS]
+2016-11-03 10:36:40,519 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-7) WFLYUT0019: Host default-host stopping
+2016-11-03 10:36:40,520 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-8) WFLYUT0008: Undertow HTTPS listener https suspending
+2016-11-03 10:36:40,535 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-8) WFLYUT0007: Undertow HTTPS listener https stopped, was bound to 127.0.0.1:8443
+2016-11-03 10:36:40,536 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-7) WFLYUT0008: Undertow HTTP listener default suspending
+2016-11-03 10:36:40,537 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-7) WFLYUT0007: Undertow HTTP listener default stopped, was bound to 127.0.0.1:8080
+2016-11-03 10:36:40,540 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-6) WFLYUT0004: Undertow 1.4.0.Final stopping
+2016-11-03 10:36:40,551 INFO  [org.jboss.as.connector.deployers.jdbc] (MSC service thread 1-2) WFLYJCA0019: Stopped Driver service with driver-name = h2
+2016-11-03 10:36:40,562 INFO  [org.jboss.as] (MSC service thread 1-4) WFLYSRV0050: WildFly Full 10.1.0.Final (WildFly Core 2.2.0.Final) stopped in 57ms
